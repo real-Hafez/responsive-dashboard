@@ -10,9 +10,9 @@ abstract class AppStyles {
     );
   }
 
-  static TextStyle styleBold16(BuildContext context) {
+  static TextStyle styleBold16() {
     return const TextStyle(
-      color: Color(0xFF4EB7F2),
+      color: Color(0xFF064061),
       fontSize: 16,
       fontFamily: 'Montserrat',
       fontWeight: FontWeight.w700,
@@ -41,7 +41,7 @@ abstract class AppStyles {
     return const TextStyle(
       color: Color(0xFF064061),
       fontSize: 16,
-      fontFamily: 'Montserrat',
+      // fontFamily: 'Montserrat',
       fontWeight: FontWeight.w600,
     );
   }
