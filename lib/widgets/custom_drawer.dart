@@ -13,29 +13,43 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: Column(
-        children: [
-          const UserInfoList(
-              image: Assets.imagesAvatar1,
-              title: 'Lekan Okeowo',
-              subtitle: 'demo@gmail.com'),
-          const SizedBox(
-            height: 8,
+      child: CustomScrollView(
+        slivers: <Widget>[
+          const SliverToBoxAdapter(
+            child: UserInfoList(
+                image: Assets.imagesAvatar1,
+                title: 'Lekan Okeowo',
+                subtitle: 'demo@gmail.com'),
           ),
-          const drawer_item_list_view(),
-          const Expanded(child: SizedBox()),
-          unactive_toogle_item(
-            drawerItemModel: DrawerItemModel(
-                title: 'setting system', image: Assets.imagesSettings),
-          ),
-          unactive_toogle_item(
-            drawerItemModel: DrawerItemModel(
-              title: 'Logout',
-              image: Assets.imagesLogout,
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 8,
             ),
           ),
-          const SizedBox(
-            height: 48,
+          const drawer_item_list_view(),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              children: [
+                const Expanded(
+                    child: SizedBox(
+                  height: 20,
+                )),
+                unactive_toogle_item(
+                  drawerItemModel: DrawerItemModel(
+                      title: 'setting system', image: Assets.imagesSettings),
+                ),
+                unactive_toogle_item(
+                  drawerItemModel: DrawerItemModel(
+                    title: 'Logout',
+                    image: Assets.imagesLogout,
+                  ),
+                ),
+                const SizedBox(
+                  height: 48,
+                ),
+              ],
+            ),
           )
         ],
       ),
